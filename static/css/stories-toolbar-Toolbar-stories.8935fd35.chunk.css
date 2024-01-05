@@ -1,0 +1,177 @@
+.Toolbar{
+    display: inline-flex;
+padding: 3px 11px 2px 11px;
+/* flex-direction: column; */
+align-items: flex-start;
+gap: 10px;
+background: var(--surface-2);
+padding-top:5px;
+    padding-bottom:5px;
+}
+
+.ToolbarActionGroup{
+   
+    display:flex;
+    
+}
+
+.ToolbarActionGroupVert{
+   
+    display:flex;
+    
+}
+
+
+.ToolbarActionGroup:not(.ToolbarActionGroup:last-child){
+    border-right:1px solid #D5DADF;
+    padding-right: 2px;
+   
+}
+
+.ToolbarActionGroupVert:not(.ToolbarActionGroupVert:last-child){
+    border-bottom:1px solid #D5DADF;
+    padding-bottom: 2px;
+   
+}
+
+.DraggablePattern {
+    background: url("data:image/svg+xml;utf8,<svg width=\"4\" height=\"6\" viewBox=\"0 0 4 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0.772644\" y=\"4.75412\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/><rect x=\"2.92017\" y=\"2.60658\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/><rect x=\"0.772644\" y=\"0.498154\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/></svg>");
+    background-size: 5px;
+    background-repeat: repeat-x;
+
+    flex: 1 0;
+    height: 30px;
+    width: 30px;
+    transform: rotate(90deg);
+    margin-left: -25px;
+}
+
+.DraggablePatternVert {
+    background: url("data:image/svg+xml;utf8,<svg width=\"4\" height=\"6\" viewBox=\"0 0 4 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0.772644\" y=\"4.75412\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/><rect x=\"2.92017\" y=\"2.60658\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/><rect x=\"0.772644\" y=\"0.498154\" width=\"1\" height=\"1\" fill=\"rgba%28217, 217, 217, 1%29\"/></svg>");
+    background-size: 5px;
+    background-repeat: repeat-x;
+
+    /* flex: 1 0 0; */
+    height: 10px;
+    width: 30px;
+    margin-bottom: -8px;
+    margin-top: 4px;
+    /* transform: rotate(90deg); */
+    /* margin-left: -25px; */
+}
+
+
+.toolbarButton{
+  height: 20px;
+  font-size: 12px;
+  font-family: var(--font);
+  color:var(--neutral-10);
+  padding-left: 8px;
+  padding-right: 7px;
+  padding-top: 1px;
+  padding-bottom: 7px;
+  background: none;
+  border: none;
+  display: flex;
+  /* align-items: center; */
+}
+
+.toolbarButtonCompact{
+  height: 20px;
+  font-size: 12px;
+  font-family: var(--font);
+  color:var(--neutral-10);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.toolbarBtnHover:hover{
+  background-color: var(--blue-2);
+  /* border: 1px solid var(--blue-neutral-2); */
+  outline: 1px solid var(--blue-neutral-2)
+}
+
+
+
+.toolbarButtontoggle{
+  background-color: var(--surface-2) !important;
+  border: 1px solid var(--blue-neutral-2) !important;
+  border-bottom: none !important;
+}
+
+.toolbarbtnsplit{
+  margin-left: 2px;
+}
+
+.toolbarIconBtn{
+  width:30px;
+  height: 30px;
+ 
+  
+  font-size: 12px;
+  font-family: var(--font);
+  color:var(--neutral-10);
+
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbarIconBtnSplit{
+  font-size: 12px;
+  font-family: var(--font);
+  color:var(--neutral-10);
+  width: 11px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.toolbarIconBtnSplitContainer{
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.toolbarBtnHoverSplit:hover{
+  background-color: var(--blue-2);
+}
+
+.toolbarBtnHoverSplit:hover>button{
+  /* border: 1px solid var(--blue-neutral-2); */
+  outline: 1px solid var(--blue-neutral-2);
+}
+
+.dialogbtn{
+  
+  font-size: 12px;
+  font-family: var(--font);
+  color:var(--neutral-10);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  background: var(--surface-2);
+  border: 1px solid var(--blue-neutral-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogbtn:hover{
+  background-color: var(--blue-neutral-1);
+}
+
+
+/*# sourceMappingURL=stories-toolbar-Toolbar-stories.8935fd35.chunk.css.map*/

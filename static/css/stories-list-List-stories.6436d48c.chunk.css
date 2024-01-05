@@ -1,0 +1,29 @@
+.List{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border:1px solid lightblue;
+    padding-left:0;
+}
+
+.ListItem{
+    display: flex;
+    align-items: center;
+    gap:11px;
+    font-family: var(--font);
+    font-size:13px;
+    color: var(--neutral-11);
+    padding: 3px 7px 6px 7px;
+    min-width: 219px;
+  
+}
+
+.ListItem:hover{
+    background-color: var(--blue-2);
+}
+
+/*# sourceMappingURL=stories-list-List-stories.6436d48c.chunk.css.map*/

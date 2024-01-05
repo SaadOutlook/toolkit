@@ -1,0 +1,30 @@
+.TopLevelCont{
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:fit-content;
+}
+
+.MidLevelCont{
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:fit-content;
+    margin-left: 20px;
+}
+
+.LowLevelCont{
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:fit-content;
+    margin-left: 40px;
+}
+
+.hideC{
+    display: none;
+}
+
+.openChev{
+    transform: rotate(90deg);
+}
+
+
+/*# sourceMappingURL=stories-tree-Tree-stories.41206c04.chunk.css.map*/
