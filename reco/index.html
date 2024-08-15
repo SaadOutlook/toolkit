@@ -19,7 +19,20 @@
             <option value="usecase_automateddataextraction">Automated Data Extraction</option>
         </select>
         <br><br>
-        
+        <p>Select your Usecases:</p>
+        <label>
+            <input type="checkbox" name="options" value="usecase_apimanagement">
+            API Management
+        </label><br>
+        <label>
+            <input type="checkbox" name="options" value="usecase_artificialintelligence">
+            Artificial Intelligence
+        </label><br>
+        <label>
+            <input type="checkbox" name="options" value="usecase_automateddataextraction">
+            Automated Data Extraction
+        </label><br>
+       <br>
      
         
         
@@ -45,8 +58,9 @@
     }
 
     // Function to execute the query and display results
-    async function executeQuery(db, column) {
-        const query = `SELECT title FROM data ORDER BY ${column} DESC LIMIT 10;`;
+    async function executeQuery(db, column, selCols) {
+        const conditions = selCols.map(selCol => `${selCols} > 0.9`).join(' AND ');
+        const query = `SELECT title FROM data WHERE ${conditions} LIMIT 10;`;
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
 
@@ -64,11 +78,17 @@
 
         // Get user input
         const column = document.getElementById('usecase').value;
-      
+        const checkboxes = document.querySelectorAll('input[name="options"]:checked');
+            const selectedValues = [];
+
+            // Iterate through the checked checkboxes and store their values
+            checkboxes.forEach((checkbox) => {
+                selectedValues.push(checkbox.value);
+            });
 
         // Load the database and execute the query
         const db = await loadDatabase();
-        const res = await executeQuery(db, column);
+        const res = await executeQuery(db, column, selectedValues);
 
         // Display the results
         const outputDiv = document.getElementById('output');
