@@ -37,7 +37,7 @@
         });
 
         // Fetch the SQLite database file
-        const response = await fetch('mydatabase.sqlite');
+        const response = await fetch('articles.db');
         const arrayBuffer = await response.arrayBuffer();
         const db = new SQL.Database(new Uint8Array(arrayBuffer));
 
