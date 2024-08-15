@@ -61,7 +61,9 @@
     async function executeQuery(db, column, selCols) {
         const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
         const orderByClause = selCols.map(selCol => `${selCol} DESC`).join(', ');
-        const query = `SELECT DISTINCT  title FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
+        const cols = selCols.map(selCol => `${selCol}`).join(', ');
+        const req = 'title,'+ " " + cols
+        const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
 
