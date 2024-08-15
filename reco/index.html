@@ -59,7 +59,7 @@
 
     // Function to execute the query and display results
     async function executeQuery(db, column, selCols) {
-        const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
+        const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' AND ');
         const orderByClause = selCols.map(selCol => `CAST(SUBSTR(${selCol}, 1, INSTR(${selCol} || '.', '.') + 2) AS REAL) DESC`).join(', ');
         const cols = selCols.map(selCol => `${selCol}`).join(', ');
         const req = 'title,'+ " " + cols
@@ -72,6 +72,7 @@
                         (${calc}) AS relevance_score
                     FROM
                         data
+                    WHERE ${conditions}
                     ORDER BY
                         relevance_score DESC;`
         // const stmt = db.prepare(query);
