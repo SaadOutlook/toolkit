@@ -1,6 +1,67 @@
-<html>
-    <head>
-        <script src="sql-wasm.js"></script>
-        <script src="code.js"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+</head>
+<body>
+
+<h1>SQL.js Database Example</h1>
+<div id="output"></div>
+
+<script>
+    // Initialize SQL.js and load the database
+    async function loadDatabase() {
+        try {
+            // Initialize SQL.js with the correct locateFile function
+            const SQL = await initSqlJs({
+                locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}`
+            });
+
+            // Load the database from a file (for example, 'mydatabase.sqlite' located in the same directory)
+            const response = await fetch('articles.db');
+            const arrayBuffer = await response.arrayBuffer();
+            const db = new SQL.Database(new Uint8Array(arrayBuffer));
+
+            // Execute a simple query
+            const res = db.exec("SELECT * FROM data;");
+
+            // Display the results
+            const outputDiv = document.getElementById('output');
+            if (res.length > 0) {
+                const columns = res[0].columns;
+                const values = res[0].values;
+
+                // Create a table to display the results
+                let table = '<table border="1"><tr>';
+                columns.forEach(col => {
+                    table += `<th>${col}</th>`;
+                });
+                table += '</tr>';
+
+                values.forEach(row => {
+                    table += '<tr>';
+                    row.forEach(val => {
+                        table += `<td>${val}</td>`;
+                    });
+                    table += '</tr>';
+                });
+
+                table += '</table>';
+                outputDiv.innerHTML = table;
+            } else {
+                outputDiv.innerHTML = 'No data found';
+            }
+        } catch (err) {
+            console.error("Error loading the database:", err);
+        }
+    }
+
+    // Load the database when the page is loaded
+    window.onload = loadDatabase;
+</script>
+
+</body>
 </html>
