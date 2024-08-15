@@ -67,8 +67,8 @@
         // const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
 
         const calc = selCols.map(selCol => `CASE WHEN ${selCol} >= 0.5 THEN ${selCol} ELSE 0 END `).join('+ ');
-        const query = `SELECT
-                        title,
+        const query = `SELECT DISTINCT
+                        ${req},
                         (${calc}) AS relevance_score
                     FROM
                         data
