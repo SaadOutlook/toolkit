@@ -63,7 +63,17 @@
         const orderByClause = selCols.map(selCol => `CAST(SUBSTR(${selCol}, 1, INSTR(${selCol} || '.', '.') + 2) AS REAL) DESC`).join(', ');
         const cols = selCols.map(selCol => `${selCol}`).join(', ');
         const req = 'title,'+ " " + cols
-        const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
+        
+        // const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
+
+        const calc = selCols.map(selCol => `CASE WHEN ${selCol} >= 0.5 THEN ${selCol} ELSE 0 END `).join('+ ');
+        const query = `SELECT
+                        title,
+                        (${calc}) AS relevance_score
+                    FROM
+                        data
+                    ORDER BY
+                        relevance_score DESC;`
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
 
