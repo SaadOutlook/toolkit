@@ -8,56 +8,93 @@
 </head>
 <body>
 
-<h1>SQL.js Database Example</h1>
-<div id="output"></div>
+    <h1>Search Database</h1>
+
+    <!-- Form for user input -->
+    <form id="queryForm">
+        <label for="usecase">Choose a usecase</label>
+        <select id="usecase" name="usecase">
+            <option value="usecase_apimanagement">API Management</option>
+            <option value="usecase_artificialintelligence">Artificial Intelligence</option>
+            <option value="usecase_automateddataextraction">Automated Data Extraction</option>
+        </select>
+        <br><br>
+        
+     
+        
+        
+        <input type="submit" value="Search">
+    </form>
+    
+    <!-- Div to display the query results -->
+    <div id="output"></div>
 
 <script>
     // Initialize SQL.js and load the database
     async function loadDatabase() {
-        try {
-            // Initialize SQL.js with the correct locateFile function
-            const SQL = await initSqlJs({
-                locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}`
+        const SQL = await initSqlJs({
+            locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}`
+        });
+
+        // Fetch the SQLite database file
+        const response = await fetch('mydatabase.sqlite');
+        const arrayBuffer = await response.arrayBuffer();
+        const db = new SQL.Database(new Uint8Array(arrayBuffer));
+
+        return db;
+    }
+
+    // Function to execute the query and display results
+    async function executeQuery(db, column) {
+        const query = `SELECT ${column} FROM data WHERE ORDER BY ${column} DESC;`;
+        // const stmt = db.prepare(query);
+        // stmt.bind([value]);
+
+        // const results = [];
+        // while (stmt.step()) {
+        //     results.push(stmt.getAsObject());
+        // }
+        // stmt.free();
+        results = db.exec(query)
+        return results;
+    }
+
+    document.getElementById('queryForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        // Get user input
+        const column = document.getElementById('column').value;
+      
+
+        // Load the database and execute the query
+        const db = await loadDatabase();
+        const results = await executeQuery(db, column);
+
+        // Display the results
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '';
+
+        if (results.length > 0) {
+            let table = '<table border="1"><tr>';
+            for (let key in results[0]) {
+                table += `<th>${key}</th>`;
+            }
+            table += '</tr>';
+
+            results.forEach(row => {
+                table += '<tr>';
+                for (let key in row) {
+                    table += `<td>${row[key]}</td>`;
+                }
+                table += '</tr>';
             });
 
-            // Load the database from a file (for example, 'mydatabase.sqlite' located in the same directory)
-            const response = await fetch('articles.db');
-            const arrayBuffer = await response.arrayBuffer();
-            const db = new SQL.Database(new Uint8Array(arrayBuffer));
-
-            // Execute a simple query
-            const res = db.exec("SELECT * FROM data;");
-
-            // Display the results
-            const outputDiv = document.getElementById('output');
-            if (res.length > 0) {
-                const columns = res[0].columns;
-                const values = res[0].values;
-
-                // Create a table to display the results
-                let table = '<table border="1"><tr>';
-                columns.forEach(col => {
-                    table += `<th>${col}</th>`;
-                });
-                table += '</tr>';
-
-                values.forEach(row => {
-                    table += '<tr>';
-                    row.forEach(val => {
-                        table += `<td>${val}</td>`;
-                    });
-                    table += '</tr>';
-                });
-
-                table += '</table>';
-                outputDiv.innerHTML = table;
-            } else {
-                outputDiv.innerHTML = 'No data found';
-            }
-        } catch (err) {
-            console.error("Error loading the database:", err);
+            table += '</table>';
+            outputDiv.innerHTML = table;
+        } else {
+            outputDiv.innerHTML = 'No results found';
         }
-    }
+    });
 
     // Load the database when the page is loaded
     window.onload = loadDatabase;
