@@ -60,7 +60,7 @@
     // Function to execute the query and display results
     async function executeQuery(db, column, selCols) {
         const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
-        const orderByClause = selCols.map(selCol => `ROUND(${selCol}, 1) DESC`).join(', ');
+        const orderByClause = selCols.map(selCol => `ROUND(${selCol}, 2) DESC`).join(', ');
         const cols = selCols.map(selCol => `${selCol}`).join(', ');
         const req = 'title,'+ " " + cols
         const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
