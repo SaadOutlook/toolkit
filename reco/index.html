@@ -68,7 +68,7 @@
 
         // Load the database and execute the query
         const db = await loadDatabase();
-        const results = await executeQuery(db, column);
+        const res = await executeQuery(db, column);
 
         // Display the results
         const outputDiv = document.getElementById('output');
