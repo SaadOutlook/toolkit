@@ -46,7 +46,7 @@
 
     // Function to execute the query and display results
     async function executeQuery(db, column) {
-        const query = `SELECT ${column} FROM data WHERE ORDER BY ${column} DESC;`;
+        const query = `SELECT ${column} FROM data ORDER BY ${column} DESC;`;
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
 
