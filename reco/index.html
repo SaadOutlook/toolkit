@@ -106,7 +106,7 @@
     }
 
     // Function to execute the query and display results
-    async function executeQuery(db, column, selCols) {
+    async function executeQuery(db, selCols) {
         const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
         const orderByClause = selCols.map(selCol => `CAST(SUBSTR(${selCol}, 1, INSTR(${selCol} || '.', '.') + 2) AS REAL) DESC`).join(', ');
         const cols = selCols.map(selCol => `${selCol}`).join(', ');
@@ -150,7 +150,7 @@
 
         // Load the database and execute the query
         const db = await loadDatabase();
-        const res = await executeQuery(db, column, selectedValues);
+        const res = await executeQuery(db, selectedValues);
 
         // Display the results
         const outputDiv = document.getElementById('output');
