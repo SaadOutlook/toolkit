@@ -59,8 +59,9 @@
 
     // Function to execute the query and display results
     async function executeQuery(db, column, selCols) {
-        const conditions = selCols.map(selCol => `${selCol} > 0.9`).join(' OR ');
-        const query = `SELECT title FROM data WHERE ${conditions};`;
+        const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
+        const orderByClause = selCols.map(selCol => `${selCol} DESC`).join(', ');
+        const query = `SELECT title FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
 
