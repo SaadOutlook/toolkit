@@ -59,7 +59,7 @@
 
     // Function to execute the query and display results
     async function executeQuery(db, column, selCols) {
-        const conditions = selCols.map(selCol => `${selCols} > 0.9`).join(' AND ');
+        const conditions = selCols.map(selCol => `${selCol} > 0.9`).join(' AND ');
         const query = `SELECT title FROM data WHERE ${conditions} LIMIT 10;`;
         // const stmt = db.prepare(query);
         // stmt.bind([value]);
