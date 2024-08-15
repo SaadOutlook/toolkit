@@ -74,26 +74,30 @@
         const outputDiv = document.getElementById('output');
         outputDiv.innerHTML = '';
 
-        if (results.length > 0) {
-            let table = '<table border="1"><tr>';
-            for (let key in results[0]) {
-                table += `<th>${key}</th>`;
-            }
-            table += '</tr>';
+        if (res.length > 0) {
+                const columns = res[0].columns;
+                const values = res[0].values;
 
-            results.forEach(row => {
-                table += '<tr>';
-                for (let key in row) {
-                    table += `<td>${row[key]}</td>`;
-                }
+                // Create a table to display the results
+                let table = '<table border="1"><tr>';
+                columns.forEach(col => {
+                    table += `<th>${col}</th>`;
+                });
                 table += '</tr>';
-            });
 
-            table += '</table>';
-            outputDiv.innerHTML = table;
-        } else {
-            outputDiv.innerHTML = 'No results found';
-        }
+                values.forEach(row => {
+                    table += '<tr>';
+                    row.forEach(val => {
+                        table += `<td>${val}</td>`;
+                    });
+                    table += '</tr>';
+                });
+
+                table += '</table>';
+                outputDiv.innerHTML = table;
+            } else {
+                outputDiv.innerHTML = 'No data found';
+            }
     });
 
     // Load the database when the page is loaded
