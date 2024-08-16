@@ -28,6 +28,7 @@
             <option value="usecase_legacydatamodernization">Automated Data Extraction</option>
            
         </select> -->
+        
         <br><br>
         <p>Select your Usecases:</p>
         <label>
@@ -80,9 +81,16 @@
         </label><br>
       
 
-       <br>
+       <br><br>
+
+       <p>Select your Industries:</p>
+       <label>
+           <input type="checkbox" name="industry" value="industry_education">
+           Education
+       </label><br>
+       
      
-        
+       <br>
         
         <input type="submit" value="Search">
     </form>
@@ -107,6 +115,7 @@
 
     // Function to execute the query and display results
     async function executeQuery(db, selCols) {
+        
         const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
         const orderByClause = selCols.map(selCol => `CAST(SUBSTR(${selCol}, 1, INSTR(${selCol} || '.', '.') + 2) AS REAL) DESC`).join(', ');
         const cols = selCols.map(selCol => `${selCol}`).join(', ');
@@ -115,6 +124,7 @@
         // const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
 
         const calc = selCols.map(selCol => `CASE WHEN ${selCol} >= 0.5 THEN ${selCol} ELSE 0 END `).join('+ ');
+       
         const query = `SELECT DISTINCT
                         ${req},
                         (${calc}) AS relevance_score
@@ -145,6 +155,14 @@
 
             // Iterate through the checked checkboxes and store their values
             checkboxes.forEach((checkbox) => {
+                selectedValues.push(checkbox.value);
+            });
+
+            const industry = document.querySelectorAll('input[name="industry"]:checked');
+            const selectedIndustries = [];
+
+            // Iterate through the checked checkboxes and store their values
+            industry.forEach((checkbox) => {
                 selectedValues.push(checkbox.value);
             });
 
