@@ -386,14 +386,14 @@
         }
 
         function findMaxIndexFromIndex(arr, startIndex) {
-  if (startIndex < 0 || startIndex >= arr.length) {
+  if (startIndex < 0 || startIndex >= arr.length - 1) {
     return -1; // Return -1 if the start index is out of bounds
   }
   
   let maxIndex = startIndex;
   
-  // Loop through the array from the start index to the end
-  for (let i = startIndex; i < arr.length; i++) {
+  // Loop through the array from the start index to the second last item
+  for (let i = startIndex; i < arr.length - 1; i++) {
     if (arr[i] > arr[maxIndex]) {
       maxIndex = i;
     }
