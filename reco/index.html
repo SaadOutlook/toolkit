@@ -359,7 +359,7 @@
             const conditions = selCols.map(selCol => `${selCol} > 0.5`).join(' OR ');
             const orderByClause = selCols.map(selCol => `CAST(SUBSTR(${selCol}, 1, INSTR(${selCol} || '.', '.') + 2) AS REAL) DESC`).join(', ');
             const cols = selCols.map(selCol => `${selCol}`).join(', ');
-            const req = 'title,' + " " + cols
+            const req = 'title,content,' + " " + cols
 
             // const query = `SELECT DISTINCT ${req} FROM data WHERE ${conditions} ORDER BY ${orderByClause};`;
 
