@@ -385,6 +385,24 @@
             return results;
         }
 
+        function findMaxIndexFromIndex(arr, startIndex) {
+  if (startIndex < 0 || startIndex >= arr.length) {
+    return -1; // Return -1 if the start index is out of bounds
+  }
+  
+  let maxIndex = startIndex;
+  
+  // Loop through the array from the start index to the end
+  for (let i = startIndex; i < arr.length; i++) {
+    if (arr[i] > arr[maxIndex]) {
+      maxIndex = i;
+    }
+  }
+  
+  return maxIndex;
+}
+
+
         document.getElementById('queryForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -425,7 +443,7 @@
             if (res.length > 0) {
                 const columns = res[0].columns;
                 const values = res[0].values;
-
+                
                 // Create a table to display the results
                 let table = '';
                 // columns.forEach(col => {
@@ -437,9 +455,14 @@
                     table += ' <div class="blog-item">';
                     table += ' <h3>'+row[0]+'</h3>';
                     table += ' <p>'+row[1]+'</p>';
+
+                    const maxIndex = findMaxIndexFromIndex(row, 2);
+                    table += '<span>';
+                    table += ' <span>'+columns[maxIndex]+'</span>';
                     // row.forEach(val => {
                     //     table += `<td>${val}</td>`;
                     // });
+                    table += '</span>';
                     table += '</div>';
                 });
 
