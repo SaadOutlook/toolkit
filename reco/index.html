@@ -112,6 +112,19 @@
         <input type="checkbox" name="industry" value="industry_retail">
         Retail
     </label><br>
+
+    <br><br>
+
+       <p>Select your Expertise</p>
+       <label>
+           <input type="checkbox" name="expertise" value="expertise_beginner">
+           Beginner
+       </label><br>
+       <label>
+        <input type="checkbox" name="expertise" value="expertise_intermediate">
+        Intermediate
+    </label><br>
+    
      
        <br>
         
@@ -186,6 +199,14 @@
 
             // Iterate through the checked checkboxes and store their values
             industry.forEach((checkbox) => {
+                selectedValues.push(checkbox.value);
+            });
+
+            const expertise = document.querySelectorAll('input[name="expertise"]:checked');
+            const selectedExpertise = [];
+
+            // Iterate through the checked checkboxes and store their values
+            expertise.forEach((checkbox) => {
                 selectedValues.push(checkbox.value);
             });
 
