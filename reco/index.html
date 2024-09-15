@@ -12,14 +12,15 @@
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            background-color: #0f172a;
+            background-color: #020617;
         }
+
         .cont {
             width: 100%;
             min-width: 100%;
             min-height: 100%;
             overflow: hidden;
-            margin:0;
+            margin: 0;
             height: 100%;
             min-height: 100%;
         }
@@ -29,136 +30,185 @@
             height: 100%;
         }
 
-        .parameters{
+        .parameters {
             background-color: #1e293b;
-            
-           
+
+
             width: 20%;
-            padding:8px 24px;
-            
-            margin:12px;
+            padding: 8px 24px;
+
+            margin: 12px;
             border-radius: 24px;
         }
-        .results{
-            background-color: #0f172a;
-            width: 80%;
-            min-height: 100%;
-        }
-        .form-group{
-            padding:24px;
+
+       
+
+        .form-group {
+            padding: 24px;
             background-color: #334155;
             border-radius: 16px;
-            border:1px solid #475569;
+            border: 1px solid #475569;
             max-height: 280px;
             overflow-y: auto;
         }
-        .form-group p{
-            margin-top:0;
-            color:#94a3b8;
-           
+
+        .form-group p {
+            margin-top: 0;
+            color: #94a3b8;
+
         }
 
         .checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
         input[type="checkbox"] {
-  /* Hide the default checkbox */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #64748b;
-  border: 2px solid #64748b;
-  border-radius: 4px;
-  transition: background-color 0.3s, border-color 0.3s;
-  cursor: pointer;
-  position: relative;
-}
+            /* Hide the default checkbox */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: #64748b;
+            border: 2px solid #64748b;
+            border-radius: 4px;
+            transition: background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
 
-input[type="checkbox"]:checked {
-  background-color: #2563eb;
-  border-color: #2563eb;
-}
+        input[type="checkbox"]:checked {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
 
-input[type="checkbox"]:checked::after {
-  content: '';
-  position: absolute;
-  top: 1px;
-  left: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
+        input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
 
-input[type="checkbox"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.4);
-}
+        input[type="checkbox"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.4);
+        }
 
-label {
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 5px;
-}
+        label {
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
 
-/* For WebKit browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 24px; /* Width of the scrollbar */
- 
-}
+        /* For WebKit browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 24px;
+            /* Width of the scrollbar */
 
-::-webkit-scrollbar-track {
-  background: #45484b00; /* Background color of the track */
-  border-radius: 8px;
-   /* Rounded corners of the track */
-}
+        }
 
-::-webkit-scrollbar-thumb {
-  background: #64748b33; /* Color of the draggable part of the scrollbar */
-  border-radius: 16px; /* Rounded corners of the thumb */
-  transition: all 0.6s; /* Smooth transition on hover */
+        ::-webkit-scrollbar-track {
+            background: #45484b00;
+            /* Background color of the track */
+            border-radius: 8px;
+            /* Rounded corners of the track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #64748b33;
+            /* Color of the draggable part of the scrollbar */
+            border-radius: 16px;
+            /* Rounded corners of the thumb */
+            transition: all 0.6s;
+            /* Smooth transition on hover */
+
+            width: 16px;
+            border: 8px solid transparent;
+            background-clip: padding-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            cursor: pointer;
+            background: #64748b;
+            width: 16px;
+            border: 8px solid transparent;
+            background-clip: padding-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-left: 292px;
+            background-color: #2563eb;
+            border: 1px solid #2563eb;
+            color: white;
+            transition: background 0.3s;
+            letter-spacing: 0.01pt;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1d4ed8;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.4);
+        }
+
+        .results {
+            background-color: #020617;
+            width: 80%;
+            min-height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            max-height: 100vh;
+            overflow: auto;
+        }
+
+        .blog-item{
+            background-color: #0f172a;
+           
+            padding: 8px 24px;
+
+            margin: 12px;
+            border-radius: 24px;
+            max-width: 291px;
+            min-width: 291px;
+            min-height: 278px;
+            max-height: 278px;
+        }
+        .blog-item h3{
+            font-weight: 500;
+        }
+        .blog-item p{
+            color:#64748b;
+           
+    color: #64748b;
+    height: 107px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
-  width: 16px;
-  border: 8px solid transparent;
-  background-clip: padding-box;
-}
 
-::-webkit-scrollbar-thumb:hover {
-  cursor: pointer;
-  background: #64748b;
-  width: 16px;
-  border: 8px solid transparent;
-  background-clip: padding-box;
-}
-
-input[type="submit"]{
-    padding: 10px 16px;
-    border-radius: 8px;
-    margin-left: 292px;
-    background-color: #2563eb;
-    border:1px solid #2563eb;
-    color:white;
-    transition: background 0.3s;
-    letter-spacing: 0.01pt;
-}
-
-input[type="submit"]:hover{
-    background-color: #1d4ed8;
-    cursor: pointer;
-    outline: none;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.4);
-}
-
+        }
+        .blog-item span span{
+            background-color: #2563eb;
+            padding: 4px;
+            border-radius: 4px;
+            max-width: 86px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+        }
     </style>
 </head>
 
@@ -167,109 +217,109 @@ input[type="submit"]:hover{
     <div class="row">
 
         <div class="parameters">
-           
+
 
             <!-- Form for user input -->
             <form id="queryForm">
 
-                
-                <br>
-                <div class="form-group">
-                <p>Select your Usecases</p>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_apimanagement">
-                    API Management
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_artificialintelligence">
-                    Artificial Intelligence
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_automateddataextraction">
-                    Automated Data Extraction
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_buildingadatwarehouse">
-                    Datawarehouse
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_customer360degreeview">
-                    Customer 360-Degree View
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_dataintegration">
-                    Data Integration
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_datamigration">
-                    Data Migration
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_datamodelling">
-                    Data Modelling
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_dataquality">
-                    Data Quality
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_datasynchronization">
-                    Data Synchronization
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_datatransformation">
-                    Data Transformation
-                </label>
-                <label>
-                    <input type="checkbox" name="options" value="usecase_legacydatamodernization">
-                    Legacy Data Modernization
-                </label>
-            </div>
 
                 <br>
-            <div class="form-group">
-                <p>Select your Industries</p>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_education">
-                    Education
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_finance">
-                    Finance
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_government">
-                    Government
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_healthcare">
-                    Healthcare
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_insurance">
-                    Insurance
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_media">
-                    Media & Communication
-                </label>
-                <label>
-                    <input type="checkbox" name="industry" value="industry_retail">
-                    Retail
-                </label>
-            </div>
+                <div class="form-group">
+                    <p>Select your Usecases</p>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_apimanagement">
+                        API Management
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_artificialintelligence">
+                        Artificial Intelligence
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_automateddataextraction">
+                        Automated Data Extraction
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_buildingadatwarehouse">
+                        Datawarehouse
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_customer360degreeview">
+                        Customer 360-Degree View
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_dataintegration">
+                        Data Integration
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_datamigration">
+                        Data Migration
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_datamodelling">
+                        Data Modelling
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_dataquality">
+                        Data Quality
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_datasynchronization">
+                        Data Synchronization
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_datatransformation">
+                        Data Transformation
+                    </label>
+                    <label>
+                        <input type="checkbox" name="options" value="usecase_legacydatamodernization">
+                        Legacy Data Modernization
+                    </label>
+                </div>
+
                 <br>
-            <div class="form-group">
-                <p>Select your Expertise</p>
-                <label>
-                    <input type="checkbox" name="expertise" value="expertise_beginner">
-                    Beginner
-                </label>
-                <label>
-                    <input type="checkbox" name="expertise" value="expertise_intermediate">
-                    Intermediate
-                </label>
-            </div>
+                <div class="form-group">
+                    <p>Select your Industries</p>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_education">
+                        Education
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_finance">
+                        Finance
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_government">
+                        Government
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_healthcare">
+                        Healthcare
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_insurance">
+                        Insurance
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_media">
+                        Media & Communication
+                    </label>
+                    <label>
+                        <input type="checkbox" name="industry" value="industry_retail">
+                        Retail
+                    </label>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>Select your Expertise</p>
+                    <label>
+                        <input type="checkbox" name="expertise" value="expertise_beginner">
+                        Beginner
+                    </label>
+                    <label>
+                        <input type="checkbox" name="expertise" value="expertise_intermediate">
+                        Intermediate
+                    </label>
+                </div>
 
                 <br>
 
@@ -277,7 +327,12 @@ input[type="submit"]:hover{
             </form>
         </div>
         <!-- Div to display the query results -->
-        <div class="results" id="output"></div>
+        <div class="results" id="output">
+           
+
+           
+           
+        </div>
 
     </div>
 
@@ -372,21 +427,23 @@ input[type="submit"]:hover{
                 const values = res[0].values;
 
                 // Create a table to display the results
-                let table = '<table border="1"><tr>';
-                columns.forEach(col => {
-                    table += `<th>${col}</th>`;
-                });
-                table += '</tr>';
+                let table = '';
+                // columns.forEach(col => {
+                //     table += `<th>${col}</th>`;
+                // });
+                // table += '</tr>';
 
                 values.forEach(row => {
-                    table += '<tr>';
-                    row.forEach(val => {
-                        table += `<td>${val}</td>`;
-                    });
-                    table += '</tr>';
+                    table += ' <div class="blog-item">';
+                    table += ' <h3>'+row[0]+'</h3>';
+                    table += ' <p>'+row[1]+'</p>';
+                    // row.forEach(val => {
+                    //     table += `<td>${val}</td>`;
+                    // });
+                    table += '</div>';
                 });
 
-                table += '</table>';
+                table += '';
                 outputDiv.innerHTML = table;
             } else {
                 outputDiv.innerHTML = 'No data found';
